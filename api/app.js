@@ -1,4 +1,3 @@
-//On 24:00 
 const express = require("express");
 const app = express();
 const { mongoose } = require("./db/mongoose")
@@ -9,6 +8,13 @@ const { List, Task } = require('./db/models');
 
 // load middleware
 app.use(bodyParser.json());
+
+// CORS header middleware
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
 /*LIST ROUTES*/
 // Get all lists
