@@ -1,0 +1,102 @@
+@import "../../../main-styles.scss";
+
+/*perfectly centered text*/
+.centered-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.task-manager-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  max-width: 90%; /*I can play with these values later to see what looks best*/
+  max-height: 80%;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  background: white;
+  padding: 42px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.tasks-list-container {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /*use remaining width thats available*/
+  padding: 42px;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.title {
+  font-family: "Lato"; /*Find better font*/
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/*scss allows you to nest these*/
+.list-menu {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  flex-grow: 1; /*Take up remaining height*/
+
+  .list-menu-item {
+    display: flex;
+    align-items: center;
+    padding: 10px, 15px;
+    border-radius: 5px;
+    width: 100%;
+    color: #5f5f5f;
+    margin-bottom: 10px;
+
+    &:hover {
+      background: $light; /*Variable we defined in main-styles.scss*/
+    }
+    /*When it has class is-active*/
+    &.is-active {
+      background: #cff8ef;
+      color: $dark-green;
+    }
+  }
+}
+
+/*Will leave like this for now, I think he comes back to it later*/
+.task {
+  background: white;
+  padding-left: 20px;
+  padding-top: 15px;
+  border-radius: 5px;
+  margin-top: 10px;
+
+  /*Not sure how he got the height to work, he didn't have height:*/
+  height: 50px;
+
+  &:not(.complete) {
+    cursor: pointer;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+    &:active {
+      /*On click*/
+      transform: scale(0.95);
+    }
+
+    &:hover {
+      box-shadow: 0 0 5px #eeeeee;
+    }
+  }
+
+  &.complete {
+    text-decoration: line-through;
+    opacity: 80%;
+  }
+}
