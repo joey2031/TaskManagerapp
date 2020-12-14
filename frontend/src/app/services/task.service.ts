@@ -1,14 +1,17 @@
 // Responsible for modifying our data
 import { Injectable } from '@angular/core';
+import { WebRequestService } from './web-request.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskService {
 
-  constructor() { }
+  constructor(private webReqService: WebRequestService) { }
 
   createList(title: String){
-    // Send a request to create a list
+    // Send a request to create a lists -> Return an observable
+    return this.webReqService.post(`lists`, { title });
+
   }
 }
