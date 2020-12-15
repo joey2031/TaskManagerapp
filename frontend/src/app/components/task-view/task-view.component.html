@@ -6,19 +6,15 @@
         Lists
       </h1>
       <div class="list-menu">
-        <a class="list-menu-item is-active">
-          <p>List #1</p>
-        </a>
-        <a class="list-menu-item">
-          <p>List #1</p>
-        </a>
-        <a class="list-menu-item">
-          <p>List #1</p>
+
+        <a class="list-menu-item" *ngFor="let l of lists" [routerLink]="['/lists', l._id]" routerLinkActive="is-active">
+          <p>{{l.title}}</p>
         </a>
       </div>
 
       <!--class="button" is a bulma class-->
-      <button class="button is-primary has-text-white" (click)="createNewList()">+ New List</button>
+      <button class="button is-primary has-text-white" routerLink="/new-list" routerLinkActive="router-link-active">+
+        New List</button>
     </div>
 
 
@@ -27,15 +23,10 @@
         Tasks
       </h1>
       <!--Task elements-->
-      <div class="task complete">
-        <p>This is something I have to do</p>
+      <div class="task complete" *ngFor="let t of tasks">
+        {{t.title}}
       </div>
-      <div class="task">
-        <p>This is something I have to do</p>
-      </div>
-      <div class="task">
-        <p>This is something I have to do</p>
-      </div>
+
     </div>
   </div>
 </div>
