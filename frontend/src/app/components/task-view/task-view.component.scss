@@ -8,6 +8,12 @@
   max-height: 80%;
 }
 
+/*
+overflow is a combination of overflow-x and overflow-y. If you only need to add
+scrollbars for vertical overflow, only take overflow-y: scroll; If you dont want
+to see the scrollbar when content small, try overflow: auto.
+src: https://stackoverflow.com/a/37257058/12021580
+*/
 .sidebar {
   display: flex;
   flex-direction: column;
@@ -16,9 +22,11 @@
   padding: 42px;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
+  overflow-y: scroll;
 }
 
 .tasks-list-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   flex-grow: 1; /*use remaining width thats available*/
@@ -90,4 +98,15 @@
     text-decoration: line-through;
     opacity: 80%;
   }
+}
+
+/*By adding position: relative; to the .tasks-list-container this css
+ allows the button to be in responsive in the corner of the Task list box */
+.circle-add-button {
+  position: absolute;
+  bottom: 35px;
+  right: 35px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
 }
