@@ -23,11 +23,12 @@
         Tasks
       </h1>
       <!--Task elements-->
-      <div class="task complete" *ngFor="let t of tasks">
+      <!--There are still some bugs with this, might get fixed later on in the series-->
+      <div class="task" *ngFor="let t of tasks">
         {{t.title}}
       </div>
 
-      <button class="circle-add-button button is-primary">
+      <button routerLink="./new-task" class="circle-add-button button is-primary">
         <img src="../../../assets/plus-icon.svg">
       </button>
 
