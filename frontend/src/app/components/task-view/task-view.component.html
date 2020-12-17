@@ -23,8 +23,7 @@
         Tasks
       </h1>
       <!--Task elements-->
-      <!--There are still some bugs with this, might get fixed later on in the series-->
-      <div class="task" *ngFor="let t of tasks">
+      <div class="task" *ngFor="let t of tasks" (click)="OnTaskClick(task)">
         {{t.title}}
       </div>
 
